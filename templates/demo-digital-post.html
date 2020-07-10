@@ -1,0 +1,237 @@
+{% extends 'demo-digital-agency.html' %}
+    {% block metas %}
+        <meta property="og:url"           content="https://girekstudio.com/blog/{{ blog.id }}" />
+        <meta property="og:type"          content="website" />
+        <meta property="og:title"         content="{{ blog.titulo }}" />
+        <meta property="og:description"   content="{{ blog.articulo }}" />
+        <meta property="og:image"         content="https://girekstudio.com/media/{{ blog.imagen }}" />
+        <meta property="og:image:width" content="400"/>
+        <meta property="og:image:height" content="300"/>
+    {% endblock %}
+
+
+ {% block menu %}
+
+<div class="header-column">
+    <div class="header-row">
+        <div class="header-nav header-nav-stripe">
+            <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                <i class="fa fa-bars"></i>
+            </button>
+            <ul class="header-social-icons social-icons hidden-xs">
+                <li class="social-icons-facebook"><a href="http://www.facebook.com/girekstudio" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li class="social-icons-twitter"><a href="http://www.twitter.com/girekstudio" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                <li class="social-icons-linkedin"><a href="http://www.linkedin.com/girekstudio" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://webmail.webfaction.com/" target="_blank" title="Correo Girek"><i class="fa fa-user"></i></a></li>
+            </ul>
+            <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1 collapse">
+                <nav>
+                    <ul class="nav nav-pills" id="mainNav">
+                        <li>
+                            <a href="/" >
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/estudio/">
+                                Estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/servicios/">
+                                Servicios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/portafolio/">
+                                Portafolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/tienda/">
+                                Productos
+                            </a>
+                        </li>
+                        <li  style="background-color: #4fc1e9;">
+                            <a href="/blog/"  style="background-color: #4fc1e9;">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contacto/">
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block principal %}
+    {% load contador %}
+
+    <br/><br/><br/><br/>
+	<div role="main" class="main">
+
+        <section class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="breadcrumb">
+                            <li><a href="/">Home</a></li>
+                            <li class="active">Blog</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Artículos</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <div class="container">
+
+                <div class="col-md-9">
+                    <div class="blog-posts single-post">
+                        <article class="post post-large blog-single-post">
+                            <div class="post-image">
+                                <div class="owl-carousel owl-theme" data-plugin-options='{"items":1}'>
+                                    <div>
+                                        <div class="img-thumbnail">
+                                            <img class="img-responsive" src="/media/{{ blog.imagen }}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="post-content">
+
+                                <h2>{{ blog.titulo }}</h2>
+
+                                <span><i class="fa fa-calendar"></i> {{ blog.fecha }} </span>
+                                <span><i class="fa fa-user"></i> Autor: {{ blog.autor }} </span>
+                                <span><i class="fa fa-eye"></i> Visitas: {% vistanumero blog.id %} </span>
+
+                            </div>
+                            <br/><br/><br/>
+                                <p style="text-align: justify;"> {{ blog.articulo|safe|linebreaksbr }}</p>
+                                <img class="img-responsive" src="/media/{{ blog.imagen2 }}" alt="">
+                                <a href="/blog/" class="btn btn-primary btn-icon"><i class="fa fa-external-link"></i>Volver</a>
+
+                                <div class="post-block post-share">
+                                    <h3 class="heading-primary"><i class="fa fa-share"></i>Compartir este post</h3>
+                                    <!-- AddThis Button BEGIN -->
+                                    <div class="addthis_toolbox addthis_default_style ">
+                                        <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                                        <a class="addthis_button_tweet"></a>
+                                        <a class="addthis_button_pinterest_pinit"></a>
+                                        <a class="addthis_counter addthis_pill_style"></a>
+                                    </div>
+                                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-50faf75173aadc53"></script>
+                                    <!-- AddThis Button END -->
+                                </div>
+                        </article>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                <aside class="sidebar">
+
+                     <form method="post" action="/buscar_blog/">
+                            <div class="input-group input-group-lg">
+                                <input class="form-control" placeholder="Search..." name="parametro" id="parametro" type="text">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </form>
+
+
+                    <hr>
+
+                    <div class="tabs mb-xlg">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#popularPosts" data-toggle="tab"><i class="fa fa-star"></i> Populares</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="popularPosts">
+                                    <ul class="simple-post-list">
+                                        {% for blog in blogs %}
+                                            <li>
+                                                <div class="post-image">
+                                                    <div class="img-thumbnail">
+                                                        <a href="/post/{{ blog.id }}">
+                                                            <img src="/media/{{ blog.imagen }}" style="width: 70px">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="post-info">
+                                                    <a href="/post/{{ blog.id }}">{{ blog.titulo }}</a>
+                                                    <div class="post-meta">
+                                                         {{ blog.fecha_publicacion }}
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                                <div class="tab-pane" id="recentPosts">
+                                    <ul class="simple-post-list">
+
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    <hr>
+
+                    <h4 class="heading-primary">Aviso</h4>
+                    <p style="text-align: justify">Aquí las preguntas más frecuentes que han echo nuestros clientes.</p>
+                </aside>
+        </div>
+    </div>
+    <!-- Dialog -->
+    <div id="small-dialog" class="dialog dialog-sm zoom-anim-dialog mfp-hide">
+        <p id="comentUs"></p>
+        <div>
+            <input type="text" placeholder="Escriba su nombre" class="form-control" id="iusuario"/><br/>
+            <input type="email" placeholder="Su correo electrónico" class="form-control" id="icorreo"/><br/>
+            <textarea name="respuesta" id="respuesta" style="width: 100%; resize: none; height: 100px" class="form-control" placeholder="Escriba aquì su respuesta..."></textarea>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px">
+            <button id="enviarespuesta" class="btn btn-group-sm">Enviar.!</button>
+        </div>
+    </div>
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script>
+    var usuario;
+    var id;
+        $(document).on("click",".datos",function(){
+            usuario=$(this).data("usuario");
+            id=$(this).data("id");
+            $("#comentUs").text("Pregunta del Usuario: "+usuario)
+        });
+        $("#enviarespuesta").click(function(){
+
+            try{
+                $.post("/post/"+ id +"/"+ {{ blog.id }} +"/",{usuario:$("#iusuario").val(),respuesta:$("#respuesta").val(),email:$("#icorreo").val()}, function () {
+
+                });
+                alert("La respuesta se creo success");
+                window.location="/post/"+{{ blog.id }}
+            }
+            catch (ex){
+                alert("No se pudo guardar error:"+ex);
+            }
+        })
+    </script>
+{% endblock %}

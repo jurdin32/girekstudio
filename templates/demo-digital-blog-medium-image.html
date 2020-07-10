@@ -1,0 +1,193 @@
+{% extends 'demo-digital-agency.html' %}
+ {% block menu %}
+
+
+<div class="header-column">
+    <div class="header-row">
+        <div class="header-nav header-nav-stripe">
+            <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                <i class="fa fa-bars"></i>
+            </button>
+            <ul class="header-social-icons social-icons hidden-xs">
+                <li class="social-icons-facebook"><a href="http://www.facebook.com/girekstudio" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li class="social-icons-twitter"><a href="http://www.twitter.com/girekstudio" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                <li class="social-icons-linkedin"><a href="http://www.linkedin.com/girekstudio" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://webmail.webfaction.com/" target="_blank" title="Correo Girek"><i class="fa fa-user"></i></a></li>
+            </ul>
+            <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1 collapse">
+                <nav>
+                    <ul class="nav nav-pills" id="mainNav">
+                        <li>
+                            <a href="/" >
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/estudio/">
+                                Estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/servicios/">
+                                Servicios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/portafolio/">
+                                Portafolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/tienda/">
+                                Productos
+                            </a>
+                        </li>
+                        <li  style="background-color: #4fc1e9;">
+                            <a href="/blog/"  style="background-color: #4fc1e9;">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contacto/">
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block principal %}
+    {% load contador %}
+       <br/><br/><br/><br/><br/><br/>
+
+			<div role="main" class="main">
+
+				<div class="container">
+
+					<div class="row">
+						<div class="col-md-9">
+                            <div class="blog-posts">
+                                {% for blog in blogs %}
+								<article class="post post-medium">
+									<div class="row">
+										<div class="col-md-5">
+											<div class="post-image">
+												<div class="owl-carousel owl-theme" data-plugin-options='{"items":1}'>
+													<div>
+														<div class="img-thumbnail">
+															<img class="img-responsive" src="/media/{{ blog.imagen }}" alt="">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-md-7">
+											<div class="post-content">
+												<h2><a href="/post/{{ blog.id }}/">{{ blog.titulo }} </a></h2>
+												<p>{{ blog.articulo|safe|truncatechars:"100"}}</p>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<div class="post-meta">
+												<span><i class="fa fa-calendar"></i> {{ blog.fecha }} </span>
+												<span><i class="fa fa-user"></i> Autor: {{ blog.autor }}</span>
+                                                <span><i class="fa fa-eye"></i> visitas: {% vistanumero blog.id %}</span>
+
+												<a href="/post/{{ blog.id }}/" class="btn btn-xs btn-primary pull-right">Leer mas.</a>
+											</div>
+										</div>
+									</div>
+                                </article>
+                                {% endfor %}
+
+
+								<ul class="pagination pagination-lg pull-right">
+									{% if blogs.has_previous %}
+                                        <li><a href="?page={{ blogs.previous_page_number }}">«</a></li>
+                                    {% endif %}
+                                    {% for pagina in paginas %}
+                                        <li id="{{ forloop.counter }}"><a href="?page={{ forloop.counter }}">{{ forloop.counter }}</a></li>
+                                    {% endfor %}
+                                    {% if blogs.has_next %}
+                                    <li><a href="?page={{ blogs.next_page_number }}">»</a></li>
+                                    {% endif %}
+								</ul>
+
+							</div>
+
+						</div>
+
+						<div class="col-md-3">
+							<aside class="sidebar">
+
+								<form method="post" action="/buscar_blog/">
+                                    <div class="input-group input-group-lg">
+                                        <input class="form-control" placeholder="Búscar..." name="parametro" id="parametro" type="text">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-primary btn-lg"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                </form>
+
+								<hr>
+
+								<h4 class="heading-primary">Categorías</h4>
+								<ul class="nav nav-list mb-xlg">
+                                    {% for categoria in categorias %}
+                                        <li><a href="#">{{ categoria.categoria }}</a>
+                                            <ul>
+                                                {% for blog in blogs %}
+                                                    {% if categoria == blog.categoria %}
+                                                        <li class="active"><a href="/post/{{ blog.id  }}">{{ blog.titulo }}</a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+								</ul>
+
+								<hr>
+
+							</aside>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+            <script src="/static/admin/js/vendor/jquery/jquery.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    (function($) {
+                        $.get = function(key)   {
+                            key = key.replace(/[\[]/, '\\[');
+                            key = key.replace(/[\]]/, '\\]');
+                            var pattern = "[\\?&]" + key + "=([^&#]*)";
+                            var regex = new RegExp(pattern);
+                            var url = unescape(window.location.href);
+                            var results = regex.exec(url);
+                            if (results === null) {
+                                return null;
+                            } else {
+                                return results[1];
+                            }
+                        }
+                    })(jQuery);
+
+                    var pagina= $.get("page");
+                    activar(pagina)
+
+                });
+                function activar(id){
+                    $("#"+id).addClass("active")
+                }
+            </script>
+
+
+
+{% endblock %}

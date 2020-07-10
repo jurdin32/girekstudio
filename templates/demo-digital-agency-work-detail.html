@@ -1,0 +1,319 @@
+{% extends 'demo-digital-agency.html' %}
+
+    {% block metas %}
+        <meta property="og:url" content="https://girekstudio.com/portafolio/{{ proyecto.id }}"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="{{ proyecto.nombreproyecto }}"/>
+        <meta property="og:description" content="{{ proyecto.descripcion }}"/>
+        <meta property="og:image" content="https://girekstudio.com/media/{{proyecto.imagen }}" />
+        <meta property="og:video" content="https://girekstudio.com/media/{{proyecto.link }}" />
+    {% endblock %}
+{% block menu %}
+
+<div class="header-column">
+    <div class="header-row">
+        <div class="header-nav header-nav-stripe">
+            <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                <i class="fa fa-bars"></i>
+            </button>
+            <ul class="header-social-icons social-icons hidden-xs">
+                <li class="social-icons-facebook"><a href="http://www.facebook.com/girekstudio" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li class="social-icons-twitter"><a href="http://www.twitter.com/girekstudio" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                <li class="social-icons-linkedin"><a href="http://www.linkedin.com/girekstudio" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://webmail.webfaction.com/" target="_blank" title="Correo Girek"><i class="fa fa-user"></i></a></li>
+            </ul>
+            <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1 collapse">
+                <nav>
+                    <ul class="nav nav-pills" id="mainNav">
+                        <li>
+                            <a href="/">
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/estudio/">
+                                Estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/servicios/">
+                                Servicios
+                            </a>
+                        </li>
+                        <li style="background-color: #4fc1e9;">
+                            <a href="/portafolio/" style="background-color: #4fc1e9;">
+                                Portafolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/tienda/">
+                                Productos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/blog">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contacto/">
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block principal %}
+{% load contador %}
+
+    <br/><br/><br/><br/>
+<div class="container">
+    <br>
+    {% if proyecto.tipo_archivo == 'imagen' %}
+    <div role="main" class="main">
+        <div class="row">
+
+            <div class="col-md-12">
+                <span class="thumb-info thumb-info-lighten">
+                    <span class="thumb-info-wrapper">
+                        <img src="/media/{{proyecto.imagen }}" class="img-responsive" alt="" >
+                        <span class="thumb-info-title">
+                            <span class="thumb-info-inner">{{ proyecto.portafolio.portafolio }}</span>
+                            <span class="thumb-info-type">{{ proyecto.cliente.nombre}} </span>
+                        </span>
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portfolio-info mt-xl pull-center">
+                    <div class="row">
+                        <div class="col-md-12 center">
+                            <ul>
+                                <li>
+                                    <i class="fa fa-eye"></i>{% vistanumeropro proyecto.id %}
+                                </li>
+                                <li>
+                                    <i class="fa fa-calendar"></i> {{ proyecto.fecha|date:"d M Y"}}
+                                </li>
+                                <li>
+                                    <i class="fa fa-tags"></i> <a href="#">{{ proyecto.cliente.nombre }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8">
+                <h5 class="mt-lg mb-sm">{{ proyecto.nombreproyecto }}</h5>
+                <p class="mt-none mb-xlg" style="text-align: justify">{{ proyecto.detalle|linebreaksbr}}</p>
+                <a href="/portafolio/" class="btn btn-primary btn-icon"><i class="fa fa-external-link"></i>Volver</a>
+            </div>
+            <div class="col-md-3">
+                <ul class="portfolio-details mt-none mb-xl">
+                    <li style="text-align: center">
+                        <h5 class="mt-lg mb-sm">Cliente</h5>
+                        <p><img src="/media/{{ proyecto.cliente.logo }}" style="width: 100%" alt=""/> </p>
+                        {% if proyecto.cliente.sitio %}
+                            <a style="text-align: center" target="_blank" href="http://{{ proyecto.cliente.sitio }}">Ir al Website</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+        <hr>
+        <h2 style="text-align: center">Galería del Proyecto</h2>
+
+
+            <ul class="portfolio-list lightbox m-none" data-plugin-options='{"delegate": "a.lightbox-portfolio", "type": "image", "gallery": {"enabled": true}}'>
+
+                {% for imagenesproyecto in imagenesproyecto %}
+                    <li class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-lighten thumb-info-centered-icons">
+                                <span class="thumb-info-wrapper">
+                                    <img src="/media/{{ imagenesproyecto.galeriaproyecto }}" class="img-responsive" alt="">
+                                    <span class="thumb-info-action">
+                                        <a href="/media/{{ imagenesproyecto.galeriaproyecto }}" class="lightbox-portfolio">
+                                            <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fa fa-search-plus"></i></span>
+                                        </a>
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% elif proyecto.tipo_archivo == 'video' %}
+    <div role="main" class="main">
+        <div class="row">
+            <div  class="col-sm-6">
+                <div class="video-container">
+                    <iframe width= 100% height="315" src="https://www.youtube.com/embed/{{ proyecto.link }}?showinfo=0&rel=0&theme=light&modestbranding=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <a  style="text-align: right" href="/portafolio/" class="btn btn-primary btn-icon"><i class="fa fa-external-link"></i>Volver</a>
+
+            </div>
+            <div  class="col-md-1">
+            </div>
+
+            <div  class="col-md-4">
+                <h4 style="text-align: center" class="mt-lg mb-sm">{{ proyecto.nombreproyecto }}</h4>
+                <div class="portfolio-info mt-xl pull-left">
+                    <div class="row">
+                        <div >
+                            <ul>
+                                <li>
+                                    <i class="fa fa-eye"></i>{% vistanumeropro proyecto.id %}
+                                </li>
+                                <li>
+                                    <i class="fa fa-calendar"></i> {{ proyecto.fecha|date:"d M Y"}}
+                                </li>
+                                <li>
+                                    <i class="fa fa-tags"></i> <a href="#">{{ proyecto.cliente.nombre }}</a>
+                                </li>
+                            </ul>
+                            <br>
+                        </div>
+                        <p style="text-align: justify ; margin: 25px">{{ proyecto.detalle|linebreaksbr}}</p>
+                        <ul class="portfolio-details">
+                            <h5 style="text-align: center" class="mt-lg mb-sm">Cliente</h5>
+                            <p style="text-align: center"><img src="/media/{{ proyecto.cliente.logo }}" style="width: 75%" alt=""/>
+
+                            </p>
+                            <p style="text-align: center">
+                                {% if proyecto.cliente.sitio %}
+                                    <a  target="_blank" href="http://{{ proyecto.cliente.sitio }}">Ir al Website</a>
+                                {% endif %}
+                            </p>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div  class="col-md-1">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <hr>
+            <h2 style="text-align: center">Galería del Proyecto</h2>
+
+            <ul class="portfolio-list lightbox m-none" data-plugin-options='{"delegate": "a.lightbox-portfolio", "type": "image", "gallery": {"enabled": true}}'>
+
+                {% for imagenesproyecto in imagenesproyecto %}
+                    <li class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-lighten thumb-info-centered-icons">
+                                <span class="thumb-info-wrapper">
+                                    <img src="/media/{{ imagenesproyecto.galeriaproyecto }}" class="img-responsive" alt="">
+                                    <span class="thumb-info-action">
+                                        <a href="/media/{{ imagenesproyecto.galeriaproyecto }}" class="lightbox-portfolio">
+                                            <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fa fa-search-plus"></i></span>
+                                        </a>
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    {% else %}
+
+    <div role="main" class="main">
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div style="text-align: center" class="col-md-4">
+{#                <video style="width: 100%" controls="" name="media">#}
+{#                    <source src="/media/{{ proyecto.imagen }}" type="video/mp4">#}
+{#                </video>#}
+
+                <iframe width="315" height="560" src="https://www.youtube.com/embed/{{ proyecto.link }}?rel=0&showinfo=0&theme=light&modestbranding=1&frameborder=0"
+                    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div  class="col-md-6">
+                <div class="portfolio-info mt-xl pull-left">
+                    <h4 style="text-align: center" class="mt-lg mb-sm">{{ proyecto.nombreproyecto }}</h4>
+                    <div class="row">
+                        <div class="col-md-12 center">
+                            <ul>
+                                <li>
+                                    <i class="fa fa-eye"></i>{% vistanumeropro proyecto.id %}
+                                </li>
+                                <li>
+                                    <i class="fa fa-calendar"></i> {{ proyecto.fecha|date:"d M Y"}}
+                                </li>
+                                <li>
+                                    <i class="fa fa-tags"></i> <a href="#">{{ proyecto.cliente.nombre }}</a>
+                                </li>
+                            </ul>
+                            <br>
+                        </div>
+                        <p style="text-align: justify ; margin: 25px">{{ proyecto.detalle|linebreaksbr}}</p>
+                        <ul class="portfolio-details">
+                            <h5 style="text-align: center" class="mt-lg mb-sm">Cliente</h5>
+                            <p><img src="/media/{{ proyecto.cliente.logo }}" style="width: 100%" alt=""/> </p>
+                            {% if proyecto.cliente.sitio %}
+                                <a style="text-align: center" target="_blank" href="http://{{ proyecto.cliente.sitio }}">Ir al Website</a>
+                            {% endif %}
+                        </ul>
+                        <a  style="text-align: center" href="/portafolio/" class="btn btn-primary btn-icon"><i class="fa fa-external-link"></i>Volver</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <hr>
+        <h2 style="text-align: center">Galería del Proyecto</h2>
+
+
+            <ul class="portfolio-list lightbox m-none" data-plugin-options='{"delegate": "a.lightbox-portfolio", "type": "image", "gallery": {"enabled": true}}'>
+
+                {% for imagenesproyecto in imagenesproyecto %}
+                    <li class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="portfolio-item">
+                            <span class="thumb-info thumb-info-lighten thumb-info-centered-icons">
+                                <span class="thumb-info-wrapper">
+                                    <img src="/media/{{ imagenesproyecto.galeriaproyecto }}" class="img-responsive" alt="">
+                                    <span class="thumb-info-action">
+                                        <a href="/media/{{ imagenesproyecto.galeriaproyecto }}" class="lightbox-portfolio">
+                                            <span class="thumb-info-action-icon thumb-info-action-icon-light"><i class="fa fa-search-plus"></i></span>
+                                        </a>
+                                    </span>
+                                </span>
+                            </span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

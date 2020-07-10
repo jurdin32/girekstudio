@@ -1,0 +1,139 @@
+{% extends 'demo-digital-agency.html' %}
+ {% block menu %}
+
+    <div class="header-column">
+        <div class="header-row">
+            <div class="header-nav header-nav-stripe">
+                <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <ul class="header-social-icons social-icons hidden-xs">
+                    <li class="social-icons-facebook"><a href="http://www.facebook.com/girekstudio" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li class="social-icons-twitter"><a href="http://www.twitter.com/girekstudio" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li class="social-icons-linkedin"><a href="http://www.linkedin.com/girekstudio" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://webmail.webfaction.com/" target="_blank" title="Correo Girek"><i class="fa fa-user"></i></a></li>
+                </ul>
+                <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1 collapse">
+                    <nav>
+                        <ul class="nav nav-pills" id="mainNav">
+                            <li>
+                                <a href="/" >
+                                    Inicio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/estudio/">
+                                    Estudio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/servicios/">
+                                    Servicios
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/portafolio/">
+                                    Portafolio
+                                </a>
+                            </li>
+                            <li style="background-color: #4fc1e9;">
+                            <a href="/tienda/"style="background-color: #4fc1e9;">
+                                Productos
+                            </a>
+                            </li>
+                            <li  >
+                                <a href="/blog/" >
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/contacto/">
+                                    Contacto
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    {% block principal %}
+        <br>
+
+    <div role="main" class="main">
+        <br><br><br>
+        <section class="page-header">
+            <br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Tienda Virtual</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+
+                <div class="col-md-2 col-sm-2  col-xs-12" style="margin-right: 50px">
+                    <aside class="sidebar">
+
+                        <h4 class="heading-primary"><a href="/tienda/">Mostrar todo</a></h4>
+
+                        <ul class="nav nav-list mb-xlg sort-source" data-sort-id="portfolio" data-option-key="filter" data-plugin-options='{"layoutMode": "fitRows", "filter": "*"}'>
+                            <li style="font-size: large" data-option-value=".websites"><a href="#"><strong>Productos</strong></a></li>
+                                <ul>
+                                    {% for categoria in categorias %}
+                                     <li data-option-value=".websites"><a href="/tienda/{{ categoria.id }}" >{{ categoria.clasificacion_producto }}</a>
+                                    {% endfor %}
+                                </ul>
+                        </ul>
+                    </aside>
+                </div>
+
+                <div class="col-md-9" >
+
+                    <div class="row" >
+
+                        <ul class="portfolio-list " >
+                            
+                            {% for producto in productos  %}
+
+                            <li class="col-md-3 col-sm-3 col-xs-12  isotope-item brands; ">
+                                <div class="portfolio-item;">
+                                    <a href="/producto/{{ producto.id }}" >
+
+
+                                        <span class="thumb-info thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-lighten thumb-info-centered-icons thumb-info  thumb-info">
+
+                                            <img src="/media/{{ producto.imagen }}" class="img-responsive" alt="" style="margin-top: 15px">
+                                                <hr>
+                                                <p style="font-size: small ;margin-top: -20px;padding-left: 20px"><b>{{ producto.nombre_producto }}</b></p>
+                                                <h5 style="text-align:right ; margin-top: -10px;padding-left: 20px">$ {{ producto.precio }}</h5>
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+
+                            {% endfor %}
+
+                           
+                        </ul>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <ul class="pagination pull-right">
+                                <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><i class="fa fa-chevron-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+{% endblock %}

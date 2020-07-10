@@ -1,0 +1,224 @@
+{% extends 'demo-digital-agency.html' %}
+
+    {% block metas %}
+        <meta property="og:url" content="https://girekstudio.com/producto/{{ product.id }}" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="{{ product.nombre_producto }}" />
+        <meta property="og:description" content="{{ product.descripcion}}" />
+        <meta property="og:image" content="https://girekstudio.com/media/{{ product.imagen }}" />
+    {% endblock %}
+
+ {% block menu %}
+    <div class="header-column">
+        <div class="header-row">
+            <div class="header-nav header-nav-stripe">
+                <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <ul class="header-social-icons social-icons hidden-xs">
+                    <li class="social-icons-facebook"><a href="http://www.facebook.com/girekstudio" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li class="social-icons-twitter"><a href="http://www.twitter.com/girekstudio" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li class="social-icons-linkedin"><a href="http://www.linkedin.com/girekstudio" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://webmail.webfaction.com/" target="_blank" title="Correo Girek"><i class="fa fa-user"></i></a></li>
+                </ul>
+                <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1 collapse">
+                    <nav>
+                        <ul class="nav nav-pills" id="mainNav">
+                            <li>
+                                <a href="/" >
+                                    Inicio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/estudio/">
+                                    Estudio
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/servicios/">
+                                    Servicios
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/portafolio/">
+                                    Portafolio
+                                </a>
+                            </li>
+                            <li  style="background-color: #4fc1e9;">
+                            <a href="/tienda/"  style="background-color: #4fc1e9;">
+                                Productos
+                            </a>
+                            </li>
+                            <li >
+                                <a href="/blog/" >
+                                    Blog
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/contacto/">
+                                    Contacto
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    {% block principal %}
+    <br><br><br>
+
+
+    <div role="main" class="main shop" style="margin: 20px">
+
+        <div class="container"  >
+            <br>
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="row">
+
+                            <div class="col-md-1 ">
+                            </div>
+
+                                <div class="col-md-5" >
+
+                                        <div class=" owl-theme" data-plugin-options='{"items": 1, "margin": 10}'>
+                                            <div>
+                                                <img id="vista_previa" alt="" height="300" class="img-responsive" src="/media/{{ product.imagen }}">
+                                            </div>
+
+                                        </div>
+                                </div>
+
+
+                                <div class="col-md-1"style="margin: 10px" align="center">
+
+                                    {% for imagen in producto_imagen %}
+                                     <div class="img-thumbnail" >
+                                            <a href="#" class="data" data-url="/media/{{ imagen.galeria_articulo }}">
+                                               <img alt="" width="50"  width="50"  class="img-responsive" src="/media/{{ imagen.galeria_articulo }}">
+                                            </a>
+
+                                        </div>
+                                    {% endfor %}
+
+
+
+
+                                </div>
+
+                                <div class="col-md-4" style="margin: 10px">
+
+                                    <div class="summary entry-summary">
+
+                                        <h1 class="mb-none"><strong>{{ product.nombre_producto }}</strong></h1>
+
+                                        <div class="review_num">
+                                            <span class="count" itemprop="ratingCount">{{ product.clasif}} / {{ product.anio}}</span>
+                                        </div>
+
+                                        <div title="Rated 5.00 out of 5" class="star-rating">
+                                            <span style="width:100%"><strong class="rating">5.00</strong> out of 5</span>
+                                        </div>
+
+                                        <p class="price">
+                                            <span class="amount">${{ product.precio }}</span>
+                                        </p>
+
+                                        <br>
+
+                                        <br>
+
+                                        <p style="text-align: justify" class="taller">{{ product.descripcion  }} </p>
+
+                                        <form enctype="multipart/form-data" method="post" class="cart">
+                                            <div class="quantity">
+                                                <input type="button" class="minus" value="-">
+                                                <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                                <input type="button" class="plus" value="+">
+                                            </div>
+
+                                            <button href="#" class="btn btn-primary btn-icon" >Añadir al Carrito</button>
+                                        </form>
+
+                                        <div class="product_meta">
+                                            <span class="posted_in">Categories: <a rel="tag" href="#">{{ product.clasif}}</a>.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="tabs tabs-product">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#productDescription" data-toggle="tab">Descripción</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="productDescription">
+                                    <table class="table table-striped mt-xl">
+                                        <tbody>
+
+                                    <p>{{ product.descripcion }}</p>
+                                </div>
+                                <div class="tab-pane" id="productInfo">
+                                    <table class="table table-striped mt-xl">
+                                        <tbody>
+                                            <tr>
+                                                <th>
+                                                    Características:
+                                                </th>
+                                                <td>
+                                                    {{ product.caracteristicas |safe}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    Tamaños:
+                                                </th>
+                                                <td>
+                                                    {{ product.tamanos }}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>
+                                                    Material
+                                                </th>
+                                                <td>
+                                                    {{ product.material }}
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div align="center">
+                                        <a href="/"><button type="button" class="btn btn-borders btn-primary btn-lg">Volver Inicio</button></a>
+                                        <a href="/tienda"><button type="button" class="btn btn-borders btn-primary btn-lg">Volver Productos</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <br><br>
+
+        </div>
+    </div>
+    <script src="/static/vendor/jquery/jquery.js"></script>
+<script>
+$(document).on('click','.data',function(){
+
+{#    img='<img alt="" width="300" height=""   src="'+url+'" class="img-responsive">'#}
+    $('#vista_previa').attr('src',$(this).data('url'));
+console.log($(this).data('url'))
+});
+
+</script>
+
+{% endblock %}

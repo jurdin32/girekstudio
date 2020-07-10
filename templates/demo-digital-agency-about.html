@@ -1,0 +1,258 @@
+{% extends 'demo-digital-agency.html' %}
+
+ {% block menu %}
+<div class="header-column">
+    <div class="header-row">
+        <div class="header-nav header-nav-stripe">
+            <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                <i class="fa fa-bars"></i>
+            </button>
+            <ul class="header-social-icons social-icons hidden-xs">
+                <li class="social-icons-facebook"><a href="http://www.facebook.com/girekstudio" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                <li class="social-icons-twitter"><a href="http://www.twitter.com/girekstudio" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                <li class="social-icons-linkedin"><a href="http://www.linkedin.com/girekstudio" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://webmail.webfaction.com/" target="_blank" title="Correo Girek"><i class="fa fa-user"></i></a></li>
+            </ul>
+            <div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1 collapse">
+                <nav>
+                    <ul class="nav nav-pills" id="mainNav">
+                        <li >
+                            <a href="/" >
+                                Inicio
+                            </a>
+                        </li>
+                        <li style="background-color: #4fc1e9;">
+                            <a href="/estudio/"style="background-color: #4fc1e9;">
+                                Estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/servicios/">
+                                Servicios
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/portafolio/">
+                                Portafolio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/tienda/">
+                                Productos
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/blog/">
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contacto/">
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block principal %}
+
+
+    <div role="main" class="main">
+        <section class="parallax section section-text-light section-parallax section-center mt-none mb-xl" data-stellar-background-ratio="0.5" style="background-image: url(/static/img/azul.jpg); min-height: 700px;">
+            <div class="container">
+                <div class="row mt-xl">
+                    <div class="col-md-8 col-md-offset-2 mt-xlg">
+                        <div class="process-image appear-animation" data-appear-animation="bounceIn" data-appear-animation-delay="200">
+                            <br/><br/>
+                            <center>  <img class="img-responsive mt-xl mb-xl" src="/static/img/girekstudio/girekstudio%203.png" style="height: 150px" alt="Office"></center>
+                            <strong></strong>
+                        </div>
+                        <p class="mb-none lead">GirekStudio, somos un estudio de diseño publicitario  especializados en estrategias de marca, imagen e identidad corporativa, diseño web, social media y todo lo referente a la gráfica publicitaria.</p>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-default">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h2 class="mt-lg">Misión</h2>
+                        <p class="mt-lg" style="text-align: justify"> {{ mivi.mision }}</p>
+                        <h2 class="mt-lg">Visión</h2>
+                        <p class="mt-lg" style="text-align: justify"> {{ mivi.vision }}</p>
+                    </div>
+
+                    <div class="col-md-1 mt-lg">
+                    </div>
+
+                    <div class="col-md-5 mt-lg">
+                        <br/><br/><br/>
+                        <img class="img-responsive appear-animation" src="/static/img/girekstudio/girekstudio.png" style="height: 125px ; align: center", data-appear-animation="fadeInLeft" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+	<section class="section section-primary mb-none">
+        <div class="container">
+            <div class="row">
+                {% for experiencia in experiencias %}
+                <div class="counters counters-text-light">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter counter-dark">
+                            <i class="fa fa-user"></i>
+                            <strong data-to="{{ clientes.count }}" data-append="+">0</strong>
+                            <label>Clientes Felices</label>
+                            <br/><br/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter counter-dark">
+                            <i class="fa fa-star"></i>
+                            <strong data-to="{{ experiencia.experiencia }}"data-append="+">0</strong>
+                            <label>Años de Experiencia</label>
+                            <br/><br/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter counter-dark">
+                            <i class="fa fa-trophy"></i>
+                            <strong data-to="{{ experiencia.reconocimientos }}"data-append="+">0</strong>
+                            <label>Reconocimientos</label>
+                            <br/><br/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="counter counter-dark">
+                            <i class="fa fa-bar-chart"></i>
+                            <strong data-to="" data-append="{{ experiencia.certificaciones }}">0</strong>
+                            <label>High Score</label>
+                            <br/><br/>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+	<section style="background-color: #000000">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+
+                <div class="col-md-6">
+                    <div class="owl-carousel owl-theme nav-bottom rounded-nav mt-lg mb-none" data-plugin-options='{"items": 1, "loop": false}'>
+                        {% for frase in frases %}
+                        <div>
+                            <div class="col-md-12">
+                                <br><br><br><br><br><br><br><br>
+                                <div class="testimonial testimonial-style-6 testimonial-with-quotes mb-none">
+                                    <blockquote>
+                                        <p>{{ frase.cita }}</p>
+                                    </blockquote>
+                                    <div class="testimonial-author">
+                                        <p><strong style="color: #1494cd">{{ frase.autor }}</strong><span></span></p>
+                                    </div>
+                                </div>
+                                <br><br><br><br><br><br><br><br>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+<div class="row mt-md" style="padding: 30px">
+            <div class="col-md-12 center">
+                <p class="lead mb-xlg">Nuestros Valores. </p>
+                <div class="divider divider-primary divider-small divider-small-center mb-xl">
+                    <hr>
+                </div>
+            </div>
+                <br/><br/>
+                {% for valor in valores %}
+                    <div class="col-md-4">
+                        <div class="feature-box feature-box-style-2 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="300">
+                            <div class="feature-box-icon">
+                                <i class="icon-star icons"></i>
+                            </div>
+                            <div class="feature-box-{{ valor.icono }}">
+                                <h4 class="mb-sm">{{ valor.valor }}</h4>
+                                <p class="mb-lg" style="text-align: justify">{{ valor.concep_valor }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        <hr>
+
+
+<section class="m-xl pb-xl">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 center">
+                <h2 class="mb-none mt-xl font-weight-semibold">Equipo de Trabajo</h2>
+                <div class="divider divider-primary divider-small divider-small-center mb-xl">
+                    <hr>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-lg">
+            <div class="col-md-12">
+                 {% for equipo in equipos %}
+                 <div class=" col-lg-3 center mb-lg">
+                     <img  src="/media/{{ equipo.imagen }} "  class="img-circle mb-none" alt="50"/>
+                    <h5 class="mt-md mb-none" style="font-size: 12px">{{ equipo.nombre }}</h5>
+                    <h6 class="mb-none" style="font-size: 10px">{{ equipo.cargo }}</h6>
+                    <h6 class="mb-none" style="font-size: 10px">{{ equipo.correo }}</h6>
+                    <span class="thumb-info-social-icons">
+                        <a target="_blank" href="{{ equipo.facebook }}" ><i class="fa fa-facebook"></i><span>Facebook</span></a>
+                        <a target="_blank" href="{{ equipo.twitter }}"><i class="fa fa-twitter"></i><span>Twitter</span></a>
+                        <a target="_blank" href="{{ equipo.linkedin }}"><i class="fa fa-linkedin"></i><span>Linkedin</span></a>
+                    </span>
+                 </div>
+                 {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section section-default section-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 center">
+                <h2 class="mb-none mt-xl font-weight-semibold">Nuestros Clientes</h2>
+                <div class="divider divider-primary divider-small divider-small-center mb-xl">
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="row center">
+            <div class="owl-carousel owl-theme" data-plugin-options='{"items": 6, "autoplay": true, "autoplayTimeout": 3000}'>
+                {% for cliente in clientes %}
+                <img class="img-responsive" src="/media/{{ cliente.logo }}" alt="{{ cliente.nombre }}">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

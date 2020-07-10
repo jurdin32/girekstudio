@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html >
+    <head >
+
+		<!-- Basic -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>GIREKSTUDIO</title>
+
+{#		<meta name="keywords" content="GirekStudio, Girek, Branding,Diseño Web,Social Media,Marketing Online,Packaging,Fotografía,Publicidad,Diseño de Logotipo" />#}
+{#		<meta name="author" content="GIREKSTUDIO- Estudio de Diseño Gráfico">#}
+
+	    <!-- Favicon -->
+		<link rel="shortcut icon" href="/static/img/girekstudio/logo%20girekstudio.png" type="image/x-icon" />
+		<link rel="apple-touch-icon" href="/static/img/girekstudio/logo%20girekstudio.png">
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Web Fonts  -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="/static/vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/static/vendor/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/static/vendor/simple-line-icons/css/simple-line-icons.min.css">
+		<link rel="stylesheet" href="/static/vendor/owl.carousel/assets/owl.carousel.min.css">
+		<link rel="stylesheet" href="/static/vendor/owl.carousel/assets/owl.theme.default.min.css">
+		<link rel="stylesheet" href="/static/vendor/magnific-popup/magnific-popup.min.css">
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="/static/css/theme.css">
+		<link rel="stylesheet" href="/static/css/theme-elements.css">
+		<link rel="stylesheet" href="/static/css/theme-blog.css">
+		<link rel="stylesheet" href="/static/css/theme-shop.css">
+		<link rel="stylesheet" href="/static/css/theme-animate.css">
+
+		<!-- Current Page CSS -->
+		<link rel="stylesheet" href="/static/vendor/rs-plugin/css/settings.css">
+		<link rel="stylesheet" href="/static/vendor/rs-plugin/css/layers.css">
+		<link rel="stylesheet" href="/static/vendor/rs-plugin/css/navigation.css">
+        <link rel="stylesheet" href="/static/vendor/circle-flip-slideshow/css/component.css">
+
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="/static/css/skins/skin.css">
+
+		<!-- Demo CSS -->
+		<link rel="stylesheet" href="/static/css/demos/demo-digital-agency.css">
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="/static/css/custom.css">
+
+		<!-- Head Libs -->
+		<script src="/static/vendor/modernizr/modernizr.min.js"></script>
+
+        <!-- HTTPS required. HTTP will give a 403 forbidden response -->
+
+        <!-- HTTPS required. HTTP will give a 403 forbidden response -->
+{#        <script src="https://sdk.accountkit.com/en_US/sdk.js"></script>#}
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '2155862544742067',
+              xfbml      : true,
+              version    : 'v3.2'
+            });
+            FB.AppEvents.logPageView();
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "https://connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <meta property="fb:app_id" content="2155862544742067"/>
+        {% block metas %}
+        <meta property="og:url" content="https://girekstudio.com/"/>
+        <meta property="og:type"    content="website"/>
+        <meta property="og:title"   content="GIREKSTUDIO"/>
+        <meta property="og:description" content="GirekStudio, somos un estudio de diseño publicitario especializados en estrategias de marca, imagen e identidad corporativa, diseño web, social media y todo lo referente a la gráfica publicitaria">
+        <meta property="og:image"   content="https://girekstudio.com/media/slider/laptop-3190194_960_720.jpg" />
+        <meta property="og:image:width" content="400"/>
+        <meta property="og:image:height" content="300"/>
+        <meta property="og:image:secure_url" content="https://girekstudio.com/static/img/girekstudio/girekstudio%202.png" />
+        {% endblock %}
+
+
+
+
+{#        <!-- COMMON TAGS -->#}
+{#        {% block metas %}#}
+{##}
+{#        <!-- Search Engine -->#}
+{#        <meta name="description" content="DESCRIPCIÓN DEL ARTÍCULO, MÁXIMO 155 CARACTERES">#}
+{#        <meta name="image" content="LINK A LA IMAGEN DEL ARTÍCULO, DEBE TENER UN TAMAÑO DE 705 PÍXELES POR 368 PÍXELES">#}
+{#        <!-- Schema.org for Google -->#}
+{#        <meta itemprop="name" content="TÍTULO DEL ARTÍCULO">#}
+{#        <meta itemprop="description" content="DESCRIPCIÓN DEL ARTÍCULO, MÁXIMO 155 CARACTERES">#}
+{#        <meta itemprop="image" content="LINK A LA IMAGEN DEL ARTÍCULO">#}
+{#        <!-- Twitter -->#}
+{#        <meta name="twitter:card" content="summary_large_image">#}
+{#        <meta name="twitter:title" content="TÍTULO DEL ARTÍCULO">#}
+{#        <meta name="twitter:description" content="DESCRIPCIÓN DEL ARTÍCULO, MÁXIMO 155 CARACTERES">#}
+{#        <meta name="twitter:site" content="@USUARIO DE TWITTER">#}
+{#        <meta name="twitter:creator" content="@USUARIO DE TWITTER">#}
+{#        <meta name="twitter:image:src" content="https://www.girekstudio.com/media/slider/laptop-3190194_960_720.jpg">#}
+{#        <!-- Open Graph general (Facebook, Pinterest & Google+) -->#}
+{#        <meta name="og:title" content="GirekStudio">#}
+{#        <meta name="og:description" content="GirekStudio, Girek, Branding,Diseño Web,Social Media,Marketing Online,Packaging,Fotografía,Publicidad,Diseño de Logotipo">#}
+{#        <meta property="keywords" content="GirekStudio, Girek, Branding,Diseño Web,Social Media,Marketing Online,Packaging,Fotografía,Publicidad,Diseño de Logotipo " />#}
+{#        <meta name="og:image" content="https://www.girekstudio.com/media/slider/laptop-3190194_960_720.jpg">#}
+{#        <meta property="og:image:secure_url" content="https://secure.example.com/ogp.jpg" />#}
+{#        <meta property="og:image:type" content="image/jpeg" />#}
+{#        <meta property="og:image:width" content="400" />#}
+{#        <meta property="og:image:height" content="300" />#}
+{#        <meta property="og:image:alt" content="https://www.girekstudio.com/media/slider/laptop-3190194_960_720.jpg" />#}
+{#        <meta name="og:url" content="https://www.girekstudio.com">#}
+{#        <meta name="og:site_name" content="TÍTULO DEL ARTÍCULO">#}
+{#        <meta name="og:locale" content="en_US">#}
+{#        <meta name="og:type" content="article">#}
+{#        <!-- Open Graph - Article -->#}
+{#        <meta name="article:section" content="Social Media">#}
+{#        <meta name="article:author" content="GIREKSTUDIO- Estudio de Diseño Gráfico">#}
+{#        <meta name="article:tag" content="Social Media">#}
+{##}
+{#        {% endblock %}#}
+
+
+
+
+
+	</head>
+	<body>
+		<div class="body">
+			<header id="header" class="header-narrow header-semi-transparent" data-plugin-options='{"stickyEnabled": true, "stickyEnableOnBoxed": true, "stickyEnableOnMobile": true, "stickyStartAt": 1, "stickySetTop": "1"}'>
+				<div class="header-body">
+					<div class="header-container container">
+						<div class="header-row">
+							<div class="header-column">
+								<div class="header-logo">
+									<a href="/">
+										<img alt="" width="135px" height="55px" src="/static/img/girekstudio/girekstudio%202.png">
+									</a>
+								</div>
+							</div>
+                            {% block menu %}
+                            <div class="header-column">
+								<div class="header-row">
+									<div class="header-nav header-nav-stripe">
+										<button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+											<i class="fa fa-bars"></i>
+										</button>
+										<ul class="header-social-icons social-icons hidden-xs">
+											<li class="social-icons-facebook"><a href="http://www.facebook.com/girekstudio" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+											<li class="social-icons-twitter"><a href="http://www.twitter.com/girekstudio" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+											<li class="social-icons-instagram"><a href="http://www.instagram.com/girekstudio" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                                            <li><a href="https://webmail.webfaction.com/" target="_blank" title="Usuario Girek"><i class="fa fa-user"></i></a></li>
+
+										</ul>
+										<div class="header-nav-main header-nav-main-square header-nav-main-effect-2 header-nav-main-sub-effect-1 collapse">
+											<nav>
+												<ul class="nav nav-pills" id="mainNav">
+													<li style="background-color: #4fc1e9;">
+														<a href="/" style="background-color: #4fc1e9;">
+                                                            Inicio
+														</a>
+													</li>
+													<li>
+														<a href="/estudio/">
+															Estudio
+														</a>
+													</li>
+													<li>
+														<a href="/servicios/">
+															Servicios
+														</a>
+													</li>
+													<li>
+														<a href="/portafolio/">
+															Portafolio
+														</a>
+													</li>
+                                                    <li>
+														<a href="/tienda/">
+															Productos
+														</a>
+													</li>
+													<li>
+														<a href="/blog/">
+															Blog
+														</a>
+													</li>
+                                                    <li>
+														<a href="/contacto/">
+															Contacto
+														</a>
+													</li>
+												</ul>
+											</nav>
+										</div>
+									</div>
+								</div>
+							</div>
+                            {% endblock %}
+						</div>
+					</div>
+				</div>
+			</header>
+
+            {% block principal %}
+            <div role="main" class="main">
+                <div class="slider-container rev_slider_wrapper">
+                    <div id="revolutionSlider" class="slider rev_slider" data-plugin-revolution-slider data-plugin-options='{"gridwidth": 1170, "gridheight": 680}'>
+                        <!--Slider principal de pagina-->
+                        <ul>
+                            {% for slider in sliders %}
+                                <li data-transition="fade">
+                                {% if slider.tipo_archivo == 'imagen' %}
+                                    <img src="/media/{{ slider.archivo }}"
+                                    alt=""
+                                    data-bgposition="center center"
+                                    data-bgfit="cover"
+                                    data-bgrepeat="no-repeat"
+                                    class="rev-slidebg">
+
+                                    <div class="tp-caption"
+									data-x="center" data-hoffset="-150"
+									data-y="center" data-voffset="-95"
+									data-start="1000"
+									style="z-index: 5"
+									data-transform_in="x:[-300%];opacity:0;s:500;"><img src="/static/img/slide-title-border.png" alt=""></div>
+
+								<div class="tp-caption top-label"
+									data-x="center" data-hoffset="0"
+									data-y="center" data-voffset="-95"
+									data-start="500"
+									style="z-index: 5"
+									data-transform_in="y:[-300%];opacity:0;s:500;">{{ slider.titulo }}</div>
+
+								<div class="tp-caption"
+									data-x="center" data-hoffset="150"
+									data-y="center" data-voffset="-95"
+									data-start="1000"
+									style="z-index: 5"
+									data-transform_in="x:[300%];opacity:0;s:500;"><img src="/static/img/slides/slide-title-border.png" alt=""></div>
+
+								<div class="tp-caption main-label"
+									data-x="center" data-hoffset="0"
+									data-y="center" data-voffset="-45"
+									data-start="1500"
+									data-whitespace="nowrap"
+									data-transform_in="y:[100%];s:500;"
+									data-transform_out="opacity:0;s:500;"
+									style="z-index: 5"
+									data-mask_in="x:0px;y:0px;">{{ slider.subtitulo }}</div>
+
+
+                                {% else %}
+                                    <div class="tp-caption tp-resizeme fullscreenvideo tp-videolayer"
+									data-x="0"
+									data-y="0"
+									data-width="['auto']"
+									data-height="['auto']"
+									data-transform_idle="o:1;"
+									data-style_hover="cursor:pointer;"
+									data-transform_in="s:1000;e:Power1.easeInOut;"
+									data-transform_out="s:1000;s:1000;"
+									data-start="0"
+									data-responsive_offset="on"
+									data-videocontrols="none"
+									data-videowidth="100%"
+									data-videoheight="100%"
+									data-videomp4="/media/{{ slider.archivo }}" type="video/mp4"
+									data-posterOnMObile="off"
+									data-videopreload="auto"
+									data-videoloop="none"
+									data-forceCover="1"
+									data-aspectratio="16:9"
+									data-autoplay="on"
+									data-nextslideatend="true"
+									data-forcerewind="on">
+								</div>
+
+
+
+
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <br/><br/><br/>
+
+            <section class="m-xl pb-xl">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 center">
+                            <h2 class="mb-none mt-xl font-weight-semibold">SERVICIOS</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <hr>
+
+            <div class="row" style="padding: 30px">
+                <ul class="portfolio-list sort-destination" data-sort-id="portfolio">
+                    {% for servicio in servicio %}
+                        <li class="col-md-3 isotope-item brands">
+                            <div class="portfolio-item">
+                                <a href="/servicios/{{ servicio.id }}/">
+                                    <span class="thumb-info thumb-info-lighten">
+                                        <span class="thumb-info-wrapper">
+                                            {% for imagen in imagenes %}
+                                                {% if imagen.servicio == servicio and imagen.estado %}
+                                                <img src="/media/{{imagen.imagen }}" alt=""  class="img-responsive" >
+                                                {% endif %}
+                                            {% endfor %}
+                                            <span class="thumb-info-title">
+                                                <span class="thumb-info-inner">{{ servicio.titulo }}</span>
+                                            </span>
+                                            <span class="thumb-info-action">
+                                                <span class="thumb-info-action-icon"><i class="fa fa-link"></i></span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <hr>
+
+            <div class="row" style="padding: 30px">
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                        <h2 class="mb-none mt-xl font-weight-semibold">Articulos Recientes</h2>
+                        <div class="owl-carousel owl-theme show-nav-title top-border" data-plugin-options='{"responsive": {"0": {"items": 1}, "479": {"items": 1}, "768": {"items": 2}, "979": {"items": 3}, "1199": {"items": 3}}, "items": 3, "margin": 10, "loop": false, "nav": true, "dots": false}'>
+                            {% for blo in blog %}
+
+                                
+                                <div>
+                                    <div class="recent-posts">
+                                        <article class="post">
+                                            <a href="/post/{{ blo.id }}/"><div  class="owl-carousel owl-theme nav-inside pull-left mr-lg mb-sm" data-plugin-options='{"items": 1, "margin": 10, "animateOut": "fadeOut", "autoplay": true, "autoplayTimeout": 3000}'>
+                                                    <div>
+                                                        <img alt="" class="img-responsive img-rounded" src="/media/{{ blo.imagen }}">
+                                                    </div>
+                                                </div>
+                                                    <span><i class="fa fa-calendar"></i> {{ blo.fecha }} </span>
+                                                    <span><i class="fa fa-user"></i> Autor: {{ blo.autor }} </span>
+                                                    <h4>{{ blo.titulo }}</h4>
+                                                <p>{{ blo.articulo|truncatechars:"100" }}<a href="/post/{{ blo.id }}/" class="Leer mas">read more <i class="fa fa-angle-right"></i></a></p>
+                                            </a>
+                                        </article>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                            &nbsp;&nbsp;
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <br/><br/>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portfolio-title">
+                            <div class="row">
+                                <div class="portfolio-nav-all col-md-1">
+                                </div>
+                                <div class="col-md-10 center">
+                                    <h2 class="mb-none">Trabajos Realizados</h2>
+                                </div>
+                                <div class="portfolio-nav col-md-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <br/>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="owl-carousel owl-theme" data-plugin-options='{"items": 1, "autoplay": true, "autoplayTimeout": 6000}'>
+                            {% for trabajo in trabajos %}
+                                <div>
+                                    <span class="img-thumbnail">
+                                        <img src="/media/{{ trabajo.imagen }}" class="img-responsive" alt="">
+                                    </span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/><br/>
+
+
+
+            <section class="section section-default section-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 center">
+                            <h2 class="mb-none mt-xl font-weight-semibold">Nuestros Clientes</h2>
+                            <div class="divider divider-primary divider-small divider-small-center mb-xl">
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <div class="owl-carousel owl-theme" data-plugin-options='{"items": 6, "autoplay": true, "autoplayTimeout": 3000}'>
+                            {% for cliente in clientes %}
+                            <img class="img-responsive" src="/media/{{ cliente.logo }}" alt="{{ cliente.nombre }}">
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <br/>
+            </section>
+            <br/><br/><br/><br/>
+
+            {% endblock %}
+
+            <footer class="short" id="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <a href="/" class="logo">
+                                <img alt="GirekStudio" class="img-responsive" src="/static/img/girekstudio/girekstudio%202.png">
+                            </a>
+                        </div>
+                        {% for contacto in contacto_empresa %}
+                            <div style="float: right" class="col-sm-3 col-sm-offset-2 align-right" >
+                                <h5 class="mb-sm">Dirección</h5>
+                                <span style="font-size: small !important;" class="phone font-size-sm"><i class="fa fa-home text-color-primary"></i> {{  contacto.direccion }}</span>
+                                <span style="font-size: small !important;" class="phone font-size-sm"> {{ contacto.calle }}</span>
+                                <span class="phone font-size-sm"><i class="fa fa-phone text-color-primary"></i> {{ contacto.celular }}</span>
+                                <span class="phone font-size-sm"><i class="fa fa-phone text-color-primary"></i> {{ contacto.telefono }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr class="solid">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p>© Copyright 2016.Todos los derechos reservados.</p>
+                                </div>
+                                <div class="col-md-6 align-right">
+                                    <ul class="social-icons pull-right">
+                                        <li class="social-icons-facebook"><a href="https://www.facebook.com/girekstudio/" target="_blank" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                                        <li class="social-icons-instagram"><a href="https://www.instagram.com/girekstudio/" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></li>
+                                        <li class="social-icons-twitter"><a href="http://www.twitter.com/girekstudio" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                                        <li class="social-icons-linkedin"><a href="http://www.linkedin.com/girekstudio" target="_blank" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                        <li class="social-icons-behance"><a href="http://www.behance.com/girekstudio" target="_blank" title="Behance"><i class="fa fa-behance"></i></a></li>
+                                        <li class="social-icons-youtube"><a href="http://www.youtube.com/channel/UCxtz0a2G--UdZJMP8WB-fyw" target="_blank" title="Youtube"><i class="fa fa-youtube-play"></i></a></li>
+                                    </ul>
+                                    <span class="footer-email-custom pull-right"><i class="fa fa-envelope text-color-primary"></i> <a href="mailto:mail@example.com">info@girekstudio.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+		</div>
+
+		<!-- Vendor -->
+		<script src="/static/vendor/jquery/jquery.min.js"></script>
+		<script src="/static/vendor/jquery.appear/jquery.appear.min.js"></script>
+		<script src="/static/vendor/jquery.easing/jquery.easing.min.js"></script>
+		<script src="/static/vendor/jquery-cookie/jquery-cookie.min.js"></script>
+		<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/static/vendor/common/common.min.js"></script>
+		<script src="/static/vendor/jquery.validation/jquery.validation.min.js"></script>
+		<script src="/static/vendor/jquery.stellar/jquery.stellar.min.js"></script>
+		<script src="/static/vendor/jquery.easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+		<script src="/static/vendor/jquery.gmap/jquery.gmap.min.js"></script>
+		<script src="/static/vendor/jquery.lazyload/jquery.lazyload.min.js"></script>
+		<script src="/static/vendor/isotope/jquery.isotope.min.js"></script>
+		<script src="/static/vendor/owl.carousel/owl.carousel.min.js"></script>
+		<script src="/static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script src="/static/vendor/vide/vide.min.js"></script>
+		
+		<!-- Theme Base, Components and Settings -->
+		<script src="/static/js/theme.js"></script>
+
+		<!-- Current Page Vendor and Views -->
+		<script src="/static/js/views/view.contact.js"></script>
+		
+		<!-- Current Page Vendor and Views -->
+		<script src="/static/vendor/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+		<script src="/static/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+		
+		<!-- Theme Custom -->
+		<script src="/static/js/custom.js"></script>
+		
+		<!-- Theme Initialization Files -->
+		<script src="/static/js/theme.init.js"></script>
+
+        <script src="/static/js/examples/examples.lightboxes.js"></script>
+
+
+		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+			ga('create', 'UA-12345678-1', 'auto');
+			ga('send', 'pageview');
+		</script>
+		 -->
+    </body>
+</html>
