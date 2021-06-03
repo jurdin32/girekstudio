@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'Proyectos',
     'Publicidad',
     'ckeditor',
-'letsencrypt',
 
 ]
 
