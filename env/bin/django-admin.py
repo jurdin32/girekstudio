@@ -1,4 +1,4 @@
-#!/home/johnny/PycharmProjects/girekstudio/env/bin/python
+#!/var/www/girekstudio/env/bin/python
 from django.core import management
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-#!/home/johnny/PycharmProjects/girekstudio/env/bin/python
+#!/var/www/girekstudio/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

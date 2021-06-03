@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '4*k882v8=3g_fu9f4xvu@h7v&+)no^3svd@)p#&oks2lz@$*78'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'Proyectos',
     'Publicidad',
     'ckeditor',
-
+'letsencrypt',
 
 ]
 
@@ -130,13 +130,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = 'static'
-MEDIA_URL='/media/'
-MEDIA_ROOT='media'
+STATIC_ROOT = '/var/www/girekstudio/static'
 
-STATICFILES_DIRS=[
-   'static',
-]
+MEDIA_URL='/media/'
+MEDIA_ROOT='/var/www/girekstudio/media'
+
+#STATICFILES_DIRS=[
+#   'static',
+#]
 
 #instancias de correo electronico
 EMAIL_USE_TLS=True
